@@ -2,6 +2,9 @@ const TelegramApi = require('node-telegram-bot-api')
 const translate = require("@vitalets/google-translate-api")
 require('dotenv').config()
 
+const Buttons = require("./options")
+console.log(Buttons)
+
 const token = process.env.TOKEN
 const bot = new TelegramApi(token, {polling: true})
 
@@ -62,33 +65,21 @@ const start = async () => {
                 options.to = 'ko'
                 await bot.sendMessage(chatId, "Ok")
                 break;
+            case '🇹🇷 Tr - Uz 🇺🇿':
+                options.from = 'tr'
+                options.to = 'uz'
+                await bot.sendMessage(chatId, "Ok")
+                break;
+            case '🇺🇿 Uz - Tr 🇹🇷':
+                options.from = 'uz'
+                options.to = 'tr'
+                await bot.sendMessage(chatId, "Ok")
+                break;
 
             case '/start':
-                await bot.sendMessage(chatId, "Welcome", {
-                    reply_markup: {
-                        resize_keyboard: true,
-                        one_time_keyboard: true,
-                        keyboard: [
-                            [
-                                {text: "🇺🇸 En - Uz 🇺🇿"},
-                                {text: "🇺🇿 Uz - En 🇺🇸"}
-                            ],
-                            [
-                                {text: "🇷🇺 Ru - Uz 🇺🇿"},
-                                {text: "🇺🇿 Uz - Ru 🇷🇺"}
-                            ],
-                            [
-                                {text: "🇷🇺 Ru - En 🇺🇸"},
-                                {text: "🇺🇸 En - Ru 🇷🇺"}
-                            ],
-                            [
-                                {text: "🇰🇷 Kr - UZ 🇺🇿"},
-                                {text: "🇺🇿 Uz - Kr 🇰🇷"}
-                            ]
-                        ]
-                    }
-                })
+                await bot.sendMessage(chatId, "Welcome", Buttons)
                 break;
+
             default:
                 const translatedText = await translate(text, options)
                 await bot.sendMessage(chatId, translatedText.text)
