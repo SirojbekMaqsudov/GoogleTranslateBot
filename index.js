@@ -52,6 +52,16 @@ const start = async () => {
                 options.to = 'ru'
                 await bot.sendMessage(chatId, "Ok")
                 break;
+            case '🇰🇷 Kr - UZ 🇺🇿':
+                options.from = 'ko'
+                options.to = 'uz'
+                await bot.sendMessage(chatId, "Ok")
+                break;
+            case '🇺🇿 Uz - Kr 🇰🇷':
+                options.from = 'uz'
+                options.to = 'ko'
+                await bot.sendMessage(chatId, "Ok")
+                break;
 
             case '/start':
                 await bot.sendMessage(chatId, "Welcome", {
@@ -70,6 +80,10 @@ const start = async () => {
                             [
                                 {text: "🇷🇺 Ru - En 🇺🇸"},
                                 {text: "🇺🇸 En - Ru 🇷🇺"}
+                            ],
+                            [
+                                {text: "🇰🇷 Kr - UZ 🇺🇿"},
+                                {text: "🇺🇿 Uz - Kr 🇰🇷"}
                             ]
                         ]
                     }
