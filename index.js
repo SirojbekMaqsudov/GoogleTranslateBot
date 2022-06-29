@@ -41,62 +41,61 @@ const start = async () => {
         const chatId = msg.chat.id
         const text = msg.text
         
-        await bot.sendMessage(chatId, "Welcome", Buttons)
         switch (text) {
             case '🇺🇸 En - Uz 🇺🇿':
                 options.from = 'en'
                 options.to = 'uz'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
 
             case '🇺🇿 Uz - En 🇺🇸':
                 options.from = 'uz'
                 options.to = 'en'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
 
             case '🇷🇺 Ru - Uz 🇺🇿':
                 options.from = 'ru'
                 options.to = 'uz'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
 
             case '🇺🇿 Uz - Ru 🇷🇺':
                 options.from = 'uz'
                 options.to = 'ru'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
 
             case '🇷🇺 Ru - En 🇺🇸':
                 options.from = 'ru'
                 options.to = 'en'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
 
             case '🇺🇸 En - Ru 🇷🇺':
                 options.from = 'en'
                 options.to = 'ru'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
             case '🇰🇷 Kr - UZ 🇺🇿':
                 options.from = 'ko'
                 options.to = 'uz'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
             case '🇺🇿 Uz - Kr 🇰🇷':
                 options.from = 'uz'
                 options.to = 'ko'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
             case '🇹🇷 Tr - Uz 🇺🇿':
                 options.from = 'tr'
                 options.to = 'uz'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
             case '🇺🇿 Uz - Tr 🇹🇷':
                 options.from = 'uz'
                 options.to = 'tr'
-                await bot.sendMessage(chatId, "Ok")
+                await bot.sendMessage(chatId, "Ok", Buttons)
                 break;
 
             case '/start':
