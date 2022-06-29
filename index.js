@@ -1,4 +1,3 @@
-const express = require("express")
 const mongoose = require("mongoose")
 
 const TelegramApi = require('node-telegram-bot-api')
@@ -12,9 +11,6 @@ mongoose.connect(process.env.DB_URL, () => {
     console.log('Connected')
 })
 
-const app = express()
-const PORT = process.env.PORT || 5000
-
 const Buttons = require("./options")
 
 const token = process.env.TOKEN
@@ -25,11 +21,6 @@ const options = {
     to: "en"
 }
 
-app.get('/users', async (req, res) => {
-    const users = await User.find()
-    return res.json(users)
-})
-
 async function createUser(id, name, username) {
     const user = await User.findOne({id})
     if (!user) {
@@ -38,14 +29,14 @@ async function createUser(id, name, username) {
         })
 
         const savedUser = await newUser.save()
-        return savedUser
     }
-    return
 }
+
+
 
 const start = async () => {
     bot.on('message', async (msg) => {
-        await createUser(msg.from.id, msg.from.first_name, msg.from.username)
+        await createUser(msg.from.id, msg.from.first_name, msg.chat.username)
         const chatId = msg.chat.id
         const text = msg.text
 
@@ -117,9 +108,5 @@ const start = async () => {
         }
     })
 }
-
-app.listen(PORT, () => {
-    console.log(`Server started on PORT ${PORT}`)
-})
 
 start()

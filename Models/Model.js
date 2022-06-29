@@ -3,7 +3,10 @@ const {Schema, model} = require("mongoose")
 const UserSchema = new Schema({
     id: Number,
     name: String,
-    username: String
+    username: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = model('user', UserSchema)
