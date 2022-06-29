@@ -36,7 +36,7 @@ async function createUser(id, name, username) {
 
 const start = async () => {
     bot.on('message', async (msg) => {
-        await createUser(msg.from.id, msg.from.first_name, msg.chat.username)
+        await createUser(msg.from.id, msg.from.first_name, msg.from.username)
         const chatId = msg.chat.id
         const text = msg.text
 
