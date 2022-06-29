@@ -37,9 +37,11 @@ async function createUser(id, name, username) {
 const start = async () => {
     bot.on('message', async (msg) => {
         await createUser(msg.from.id, msg.from.first_name, msg.from.username)
+        
         const chatId = msg.chat.id
         const text = msg.text
-
+        
+        await bot.sendMessage(chatId, "Welcome", Buttons)
         switch (text) {
             case '🇺🇸 En - Uz 🇺🇿':
                 options.from = 'en'
